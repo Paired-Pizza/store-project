@@ -24,7 +24,6 @@ public class store {
         if (mainMenuSelect == 1) {
             shop();
         }
-
         System.out.println("Would you like to go back to the main menu? (y/n)");
         wantsToReturnToMainMenu = input.next();
     } while(wantsToReturnToMainMenu.equalsIgnoreCase("y"));
@@ -36,25 +35,41 @@ public class store {
             // receipt logic here
         }
         if (mainMenuSelect == 3) {
-            // exit logic here
             System.out.println("Thank you, come again.");
+            System.exit(0);
         }
 
     }
 
     public static void shop() {
+        String[] itemHolder;
+        double[] priceHolder;
+        int[] numberofItemsArray;
 
+        itemHolder = new String[10];
+        priceHolder = new double[10];
+        numberofItemsArray = new int[10];
+
+        for (int i = 1; i < 10; i++){
         Scanner input = new Scanner(System.in);
         System.out.println("What would you like to purchase?");
-        String item = input.nextLine();
+        itemHolder[i] = input.nextLine();
+
         System.out.println("What is the cost of the item?");
         double price = input.nextDouble();
+        priceHolder[i] = input.nextDouble();
+
+
         System.out.println("How many would you like to buy?");
         int numberOfItems = input.nextInt();
+        numberofItemsArray[i] = input.nextInt();
+     //   System.out.println("Items: " + itemHolder[1] + " " + itemHolder[2] + " Price: " + price + " Number of Items: " + numberOfItems);
+        }
+
 
 }
 
-//    System.out.println(item + price + numberOfItems);
+
 
     }
 
