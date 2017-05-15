@@ -24,9 +24,12 @@ public class store {
         if (mainMenuSelect == 1) {
             shop();
         }
+
         System.out.println("Would you like to go back to the main menu? (y/n)");
-        wantsToReturnToMainMenu = input.next();
+        wantsToReturnToMainMenu = input.nextLine();
+
     } while(wantsToReturnToMainMenu.equalsIgnoreCase("y"));
+
         if (wantsToReturnToMainMenu.equalsIgnoreCase("n")){
             System.exit(0);
         }
@@ -45,25 +48,32 @@ public class store {
         String[] itemHolder;
         double[] priceHolder;
         int[] numberofItemsArray;
-
+        Scanner input = new Scanner(System.in);
         itemHolder = new String[10];
         priceHolder = new double[10];
         numberofItemsArray = new int[10];
+        String wantsToReturnToMainMenu;
+        int i = 0;
 
-        for (int i = 1; i < 10; i++){
-        Scanner input = new Scanner(System.in);
-        System.out.println("What would you like to purchase?");
-        itemHolder[i] = input.nextLine();
+        do {
+                System.out.println("What would you like to purchase?");
+                itemHolder[i] = input.nextLine();
 
-        System.out.println("What is the cost of the item?");
-        priceHolder[i] = input.nextDouble();
+                System.out.println("What is the cost of the item?");
+                priceHolder[i] = input.nextDouble();
 
+                System.out.println("How many would you like to buy?");
+                numberofItemsArray[i] = input.nextInt();
+                input.nextLine();
 
-        System.out.println("How many would you like to buy?");
-        numberofItemsArray[i] = input.nextInt();
-        System.out.println("Items: " + itemHolder[1] + " " + itemHolder[2] + " Price: " + priceHolder[1]
-                + " " + priceHolder[2] + " Number of Items: " + numberofItemsArray[1] + " " + numberofItemsArray[2]);
-        }
+                System.out.println("Would you like to purchase another item? (y/n)");
+                wantsToReturnToMainMenu = input.nextLine();
+                i++;
+        }while (wantsToReturnToMainMenu.equalsIgnoreCase("y")) ;
+
+            if (wantsToReturnToMainMenu.equalsIgnoreCase("n")) {
+               return;
+            }
 
 
 }
