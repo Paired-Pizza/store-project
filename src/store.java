@@ -56,14 +56,13 @@ public class store {
         itemHolder[i] = input.nextLine();
 
         System.out.println("What is the cost of the item?");
-        double price = input.nextDouble();
         priceHolder[i] = input.nextDouble();
 
 
         System.out.println("How many would you like to buy?");
-        int numberOfItems = input.nextInt();
         numberofItemsArray[i] = input.nextInt();
-     //   System.out.println("Items: " + itemHolder[1] + " " + itemHolder[2] + " Price: " + price + " Number of Items: " + numberOfItems);
+        System.out.println("Items: " + itemHolder[1] + " " + itemHolder[2] + " Price: " + priceHolder[1]
+                + " " + priceHolder[2] + " Number of Items: " + numberofItemsArray[1] + " " + numberofItemsArray[2]);
         }
 
 
