@@ -10,6 +10,7 @@ public class store {
         Scanner input = new Scanner(System.in);
 
         int mainMenuSelect;
+        String answer = "y";
 
         String shop = "nothingToPrint";
 
@@ -23,21 +24,40 @@ public class store {
             System.out.println("3. Exit");
 
             mainMenuSelect = input.nextInt();
+            input.nextLine();
 
             if (mainMenuSelect == 1) {
                 shop = "Item name | Cost | Quantity\n";
                 Double total = 0.0;
                 do {
-                    String item = item(input);
-                    Double cost = cost(input);
-                    int quantity = quantity(input);
-                    total += cost * quantity;
-                    shop += item + " | Price: $" + cost + " x " + quantity + "\n";
-                    System.out.println("Would you like to purchase another item? (y/n)");
 
 
-                } while (input.next().equalsIgnoreCase("y"));
-                 confirm(input);
+//                   if(!answer.equalsIgnoreCase("y") || !answer.equalsIgnoreCase("n")){
+//                       System.out.println("wat?");
+//                       answer = breakingYorN(input);
+//                   }
+
+                    switch (answer) {
+                        case "y":
+                            String item = item(input);
+                            Double cost = cost(input);
+                            int quantity = quantity(input);
+                            total += cost * quantity;
+                            shop += item + " | Price: $" + cost + " x " + quantity + "\n";
+                            break;
+                        case "n":
+                            break;
+                        default:
+                            System.out.println("wat?");
+                    }
+
+                    answer = breakingYorN(input);
+
+
+
+                } while (answer.equalsIgnoreCase("y"));
+
+
                 shop += "\n Total: $" + total;
             }
 
@@ -55,25 +75,18 @@ public class store {
 
     }
 
-    public static void confirm(Scanner input) {
-        if(input.equals("y")){
-         // return to store
-        } else if (input.equals("n")){
-            // prompt 'back to menu?'
-        } else {
-            System.out.println("Sorry, I didn't catch that.");
-            // ask question again
-        }
-
-    }
-
+//    public static void confirm(Scanner input) {
+//        String y = "y";
+//        String n = "n";
+//
+//    }
     public static String item(Scanner input) {
         System.out.println("What would you like to purchase?");
         String[] itemHolder = new String[100];
         int i = 0;
         itemHolder[i] = input.nextLine();
         i++;
-        return itemHolder[i] = input.nextLine();
+        return itemHolder[i];
     }
 
     public static Double cost(Scanner input) {
@@ -89,11 +102,22 @@ public class store {
         int[] numberOfItemsArray = new int[100];
         int i = 0;
         i++;
-        return numberOfItemsArray[i] = input.nextInt();
+        numberOfItemsArray[i] = input.nextInt();
+        input.nextLine();
+        return numberOfItemsArray[i];
+
     }
 
     public static void receipt(String shop) {
         System.out.println(shop);
     }
+
+    public static String breakingYorN(Scanner input){
+        System.out.println("Would you like to purchase another item? (y/n)");
+       String answer = input.nextLine();
+       return answer;
+    }
+
+
 
 }
