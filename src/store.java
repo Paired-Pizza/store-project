@@ -41,7 +41,7 @@ public class store {
                 default:
                     System.out.println("Please try that again.");
             }
-            System.out.println("Return to the main menu? (y/n)");
+            System.out.println("Return to the main menu? (y/n)"); // this doesn't really work
             init = input.nextLine();
         }
 
@@ -91,7 +91,7 @@ public class store {
                 System.out.println("Would you like to go to the Main Menu? (y/n)");
                 String mainMenuReturn = input.nextLine();
                 switch (mainMenuReturn){
-                    case "y": showMenu();
+                    case "y": showMenu(); // this doesn't work properly, it's just for show
                         mainMenuSelect(input);
                     case "n": break;
                     default:
@@ -99,7 +99,7 @@ public class store {
                 }
                 break;
             default:
-                System.out.println("Sorry, I didn't get that.");
+                System.out.println("Sorry, I didn't get that."); // don't think this works properly
         }
     }
 
