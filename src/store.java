@@ -35,7 +35,9 @@ public class store {
                     shop += item + " | Price: $" + cost + " x " + quantity + "\n";
                     System.out.println("Would you like to purchase another item? (y/n)");
 
+
                 } while (input.next().equalsIgnoreCase("y"));
+                 confirm(input);
                 shop += "\n Total: $" + total;
             }
 
@@ -53,6 +55,17 @@ public class store {
 
     }
 
+    public static void confirm(Scanner input) {
+        if(input.equals("y")){
+         // return to store
+        } else if (input.equals("n")){
+            // prompt 'back to menu?'
+        } else {
+            System.out.println("Sorry, I didn't catch that.");
+            // ask question again
+        }
+
+    }
 
     public static String item(Scanner input) {
         System.out.println("What would you like to purchase?");
@@ -80,7 +93,6 @@ public class store {
     }
 
     public static void receipt(String shop) {
-        Scanner input = new Scanner(System.in);
         System.out.println(shop);
     }
 
