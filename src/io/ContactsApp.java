@@ -41,12 +41,11 @@ public class ContactsApp {
             case 3: // Search Contact By Name
                 searchContacts(input);
                 for (int r = 0; r < contacts.size(); r += 1) {
-                    if (searchContacts(input).equalsIgnoreCase(contacts.get(r))) {
-                        System.out.println(searchContacts(input));
+                    if (searchContacts(input).equalsIgnoreCase(contacts.get(r)) && (searchContacts(input)!= null)) {
+                        System.out.println("Found em!");
                     } else {
-                        System.out.println("Nope ");
+                        System.out.println("Nope that contact was not found, please try again! ");
                     }
-
                 }
                 break;
             case 4:
