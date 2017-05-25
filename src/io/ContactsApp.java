@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.Files;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -12,22 +13,31 @@ import java.util.Scanner;
 public class ContactsApp {
     public static void main(String[] args) throws IOException {
 
+        Scanner input = new Scanner(System.in);
         Path contactsPath = Paths.get("src/io", "contacts.txt");
         List<String> contacts = Files.readAllLines(contactsPath);
-        for (int i = 0; i < contacts.size(); i += 1);
+        for (int i = 0; i < contacts.size(); i += 1) ;
 
 //        displayMenu();
         switch (displayMenu()) {
             case 1: // View All Contacts
                 System.out.println("Here are your Contacts: ");
-                for(int p = 0; p < contacts.size(); p +=1){
+                for (int p = 0; p < contacts.size(); p += 1) {
                     System.out.println((p + 1 + ": " + contacts.get(p)));
                     System.out.println();
                     displayMenu();
                 }
                 break;
             case 2: // Add New Contact
-                break;
+                addContact(input);
+                System.out.println("The contact you added is : " + input.next());
+                Files.write(
+                        Paths.get("src/io", "contacts.txt"),
+                        List("addContact"),
+                        StandardOpenOption.APPEND
+                );
+                System.out.println(contacts);
+
             case 3:
                 break;
             case 4:
@@ -38,7 +48,7 @@ public class ContactsApp {
         }
     }
 
-    public static int displayMenu(){
+    public static int displayMenu() {
         int mainMenuSelect;
         Scanner input = new Scanner(System.in);
         System.out.println("Please make a selection.");
@@ -53,13 +63,14 @@ public class ContactsApp {
         mainMenuSelect = input.nextInt();
         return mainMenuSelect;
 
-
-
-
     }
 
-
-
+    public static String addContact(Scanner input) {
+        String newContact;
+        System.out.println("Please enter the contacts information that you would like to add:");
+        newContact = input.nextLine();
+        return newContact;
+    }
 
 
 }
