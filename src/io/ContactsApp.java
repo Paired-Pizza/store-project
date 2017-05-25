@@ -16,29 +16,38 @@ public class ContactsApp {
         Scanner input = new Scanner(System.in);
         Path contactsPath = Paths.get("src/io", "contacts.txt");
         List<String> contacts = Files.readAllLines(contactsPath);
-        for (int i = 0; i < contacts.size(); i += 1) ;
 
-//        displayMenu();
+
         switch (displayMenu()) {
             case 1: // View All Contacts
                 System.out.println("Here are your Contacts: ");
                 for (int p = 0; p < contacts.size(); p += 1) {
-                    System.out.println((p + 1 + ": " + contacts.get(p)));
+                    System.out.println(((p + 1) + ": " + contacts.get(p)));
                     System.out.println();
-                    displayMenu();
                 }
+                displayMenu();
                 break;
             case 2: // Add New Contact
-                addContact(input);
-                System.out.println("The contact you added is : " + input.next());
+                String newContact = addContact(input);
+                contacts.add(newContact);
+                System.out.println("The contact you added is : " + newContact);
                 Files.write(
-                        Paths.get("src/io", "contacts.txt"),
-                        List("addContact"),
-                        StandardOpenOption.APPEND
+                        Paths.get("src", "io", "contacts.txt"),
+                        contacts
                 );
-                System.out.println(contacts);
 
-            case 3:
+                break;
+
+            case 3: // Search Contact By Name
+                searchContacts(input);
+                for (int r = 0; r < contacts.size(); r += 1) {
+                    if (searchContacts(input).equalsIgnoreCase(contacts.get(r))) {
+                        System.out.println(searchContacts(input));
+                    } else {
+                        System.out.println("Nope ");
+                    }
+
+                }
                 break;
             case 4:
                 break;
@@ -70,6 +79,13 @@ public class ContactsApp {
         System.out.println("Please enter the contacts information that you would like to add:");
         newContact = input.nextLine();
         return newContact;
+    }
+
+    public static String searchContacts(Scanner input) {
+        String findMe;
+        System.out.println("Search Contacts by name: ");
+        findMe = input.nextLine();
+        return findMe;
     }
 
 
