@@ -40,18 +40,19 @@ public class ContactsApp {
 
             case 3: // Search Contact By Name
                 searchContacts(input);
-                int r = 0;
-                do {
-                    System.out.println("Nope, try again.");
-                    System.out.println(contacts.get(r));
-                } while (searchContacts(input).equalsIgnoreCase(contacts.get(r)) && (searchContacts(input) != null));
-            {
-                r++;
-                System.out.println("Right!");
-                System.out.println(contacts.get(r));
-            }
-
+            int r = 0;
+                for (String contact:contacts)
+                      {
+                    if (searchContacts(input).equals(contacts.get(r))) {
+                        System.out.println(contacts.get(r));
+                        System.out.println("[match]");
+                    } else {
+                        r++;
+                        System.out.println("[no match]");
+                    }
+                }
                 break;
+
             case 4:
                 break;
             case 5:
