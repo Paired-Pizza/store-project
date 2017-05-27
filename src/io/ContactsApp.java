@@ -40,24 +40,28 @@ public class ContactsApp {
 
             case 3: // Search Contact By Name
                 searchContacts(input);
-            int r = 0;
                 for (String contact:contacts)
                       {
                     if (contacts.contains(searchContacts(input))) {
-                        System.out.println(contacts.get(r));
                         System.out.println("[match]");
                     } else {
-                        r++;
                         System.out.println("[no match]");
                     }
                 }
-
-
-
-
                 break;
 
-            case 4:
+            case 4: // Delete an existing contact
+                deleteContacts(input);
+                for (String contact:contacts)
+                {
+                    if (contacts.contains(deleteContacts(input))) {
+                        contacts.remove(deleteContacts(input));
+
+                        System.out.println(deleteContacts(input) + " removed.");
+                    } else {
+                        System.out.println("[no match]");
+                    }
+                }
                 break;
             case 5:
                 System.exit(0);
@@ -84,7 +88,7 @@ public class ContactsApp {
 
     public static String addContact(Scanner input) {
         String newContact;
-        System.out.println("Please enter the contacts information that you would like to add:");
+        System.out.println("Please enter new Contact name:");
         newContact = input.nextLine();
         return newContact;
     }
@@ -94,6 +98,13 @@ public class ContactsApp {
         System.out.println("Search Contacts by name: ");
         findMe = input.nextLine();
         return findMe;
+    }
+
+    public static String deleteContacts(Scanner input) {
+        String deleteMe;
+        System.out.println("Enter Contact to Delete: ");
+        deleteMe = input.nextLine();
+        return deleteMe;
     }
 
 
