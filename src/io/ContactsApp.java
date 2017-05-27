@@ -43,7 +43,7 @@ public class ContactsApp {
             int r = 0;
                 for (String contact:contacts)
                       {
-                    if (searchContacts(input).equals(contacts.get(r))) {
+                    if (contacts.contains(searchContacts(input))) {
                         System.out.println(contacts.get(r));
                         System.out.println("[match]");
                     } else {
@@ -51,6 +51,10 @@ public class ContactsApp {
                         System.out.println("[no match]");
                     }
                 }
+
+
+
+
                 break;
 
             case 4:
