@@ -35,13 +35,11 @@ public class ContactsApp {
                         Paths.get("src", "io", "contacts.txt"),
                         contacts
                 );
-
                 break;
 
             case 3: // Search Contact By Name
                 searchContacts(input);
-                for (String contact:contacts)
-                      {
+                for (String contact : contacts) {
                     if (contacts.contains(searchContacts(input))) {
                         System.out.println("[match]");
                     } else {
@@ -52,17 +50,17 @@ public class ContactsApp {
 
             case 4: // Delete an existing contact
                 deleteContacts(input);
-                for (String contact:contacts)
-                {
+                for (int index = contacts.size() - 1; index >= 0; index--) {
                     if (contacts.contains(deleteContacts(input))) {
                         contacts.remove(deleteContacts(input));
-
                         System.out.println(deleteContacts(input) + " removed.");
+                        System.exit(0);
                     } else {
                         System.out.println("[no match]");
                     }
                 }
                 break;
+
             case 5:
                 System.exit(0);
 
