@@ -49,16 +49,36 @@ public class ContactsApp {
                 break;
 
             case 4: // Delete an existing contact
-                deleteContacts(input);
-                for (int index = contacts.size() - 1; index >= 0; index--) {
-                    if (contacts.contains(deleteContacts(input))) {
-                        contacts.remove(deleteContacts(input));
-                        System.out.println(deleteContacts(input) + " removed.");
-                        System.exit(0);
-                    } else {
-                        System.out.println("[no match]");
-                    }
-                }
+//                for(int n = 0; n < contacts.size(); n++){
+//                    if(contacts.contains(deleteContacts(input))){
+//                        contacts.remove(deleteContacts(input));
+//                        System.out.println("deleted");
+//                    } else {
+//                        System.out.println("no match");
+//                    }
+//                }
+
+
+
+
+             //   deleteContacts(input);
+//                for (String contact : contacts) {
+//                    if (contacts.contains(deleteContacts(input))) {
+//                        contacts.remove(deleteContacts(input));
+//                        System.out.println(deleteContacts(input) + " removed.");
+//                        System.exit(0);
+//                    } else {
+//                        System.out.println("[no match]");
+//                    }
+//                }
+
+//                if (contacts.contains(deleteContacts(input))){
+//                    String deleteMe = deleteContacts(input);
+//                    contacts.remove(deleteMe);
+//                    System.out.println(deleteMe + " deleted.");
+//                } else {
+//                    System.out.println("Sorry, no match.");
+//                }
                 break;
 
             case 5:
