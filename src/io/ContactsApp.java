@@ -49,6 +49,24 @@ public class ContactsApp {
                 break;
 
             case 4: // Delete an existing contact
+
+
+
+
+//                for ( int i = contacts.size() - 1;  i >= 0; i--){
+//                    String willIBeDeleted = contacts.get(i);
+//                    if(willIBeDeleted.equals(deleteContacts(input)))
+//                    {
+//                        contacts.remove(i);
+//                        i++;
+//                        System.out.println(deleteContacts(input) + " deleted.");
+//                    } else {
+//                        System.out.println("No match.");
+//                    }
+//                }
+
+
+
 //                for(int n = 0; n < contacts.size(); n++){
 //                    if(contacts.contains(deleteContacts(input))){
 //                        contacts.remove(deleteContacts(input));
