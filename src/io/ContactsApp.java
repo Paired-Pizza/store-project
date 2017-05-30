@@ -50,6 +50,21 @@ public class ContactsApp {
 
             case 4: // Delete an existing contact
 
+                for(int n = 0; n < contacts.size(); n++){
+                    if(contacts.contains(deleteContacts(input))){
+                        contacts.remove(deleteContacts(input));
+                        System.out.println("deleted");
+                    } else {
+                        System.out.println("no match");
+                    }
+                }
+
+
+
+//                int deletePlz = contacts.indexOf((deleteContacts(input)));
+//            contacts.remove(deletePlz);
+//                System.out.println( deletePlz + " deleted.");
+
 
 
 
@@ -64,19 +79,6 @@ public class ContactsApp {
 //                        System.out.println("No match.");
 //                    }
 //                }
-
-
-
-//                for(int n = 0; n < contacts.size(); n++){
-//                    if(contacts.contains(deleteContacts(input))){
-//                        contacts.remove(deleteContacts(input));
-//                        System.out.println("deleted");
-//                    } else {
-//                        System.out.println("no match");
-//                    }
-//                }
-
-
 
 
              //   deleteContacts(input);
