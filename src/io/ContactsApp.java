@@ -50,22 +50,22 @@ public class ContactsApp {
 
             case 4: // Delete an existing contact
 
-                for(int n = 0; n < contacts.size(); n++){
-                    if(contacts.contains(deleteContacts(input))){
+                for (int n = 0; n < contacts.size(); n++) {
+                    if (contacts.contains(deleteContacts(input))) {
                         contacts.remove(deleteContacts(input));
                         System.out.println("deleted");
                     } else {
                         System.out.println("no match");
                     }
+                    Files.write(Paths.get("src", "io", "contacts.txt"),
+                            contacts);
+                    break;
                 }
-
 
 
 //                int deletePlz = contacts.indexOf((deleteContacts(input)));
 //            contacts.remove(deletePlz);
 //                System.out.println( deletePlz + " deleted.");
-
-
 
 
 //                for ( int i = contacts.size() - 1;  i >= 0; i--){
@@ -79,9 +79,9 @@ public class ContactsApp {
 //                        System.out.println("No match.");
 //                    }
 //                }
-
-
-             //   deleteContacts(input);
+//
+//
+//                deleteContacts(input);
 //                for (String contact : contacts) {
 //                    if (contacts.contains(deleteContacts(input))) {
 //                        contacts.remove(deleteContacts(input));
@@ -99,7 +99,6 @@ public class ContactsApp {
 //                } else {
 //                    System.out.println("Sorry, no match.");
 //                }
-                break;
 
             case 5:
                 System.exit(0);
